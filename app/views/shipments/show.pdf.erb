@@ -6,15 +6,25 @@
     <%= wicked_pdf_javascript_include_tag "number_pages" %>
     <style>
       body {
-        background: rgba(10, 0, 10, .57);
+        background: rgba(0, 10, 0, .36);
       }
+
+      .paid img {
+        width: 100px;
+        height: 100px;
+      }
+
         .text-center {
           text-align: center;
           font-size: 4rem;
         }
 
         p {
-          font-size: 1.5rem;
+          font-size: 1.1rem;
+        }
+
+        h6 {
+          margin: 2px 0;
         }
     </style>
   </head>
@@ -23,12 +33,39 @@
       <h2>Shipment Receipt</h2>
       <%= image_tag wicked_pdf_asset_base64('logo.png') %>
     </div>
+    <div class="paid text-center">
+      <%= image_tag wicked_pdf_asset_base64('paid.jpg') %>
+      <%= image_tag wicked_pdf_asset_base64('paid2.jpg') %>
+      <%= image_tag wicked_pdf_asset_base64('paid.jpg') %>
+      <%= image_tag wicked_pdf_asset_base64('paid2.jpg') %>
+    </div>
     <div id="content" class="text-center">
       <p><strong>Ship Date:</strong> <%= @shipment.created_at.strftime("%d/%m/%Y") %></p>
       <p><strong>Tracking Number:</strong> <%= @shipment.trackingnumber %></p>
-      <p><strong>Recipient:</strong> <%= @shipment.receiverName %></p>
-      <p><strong>Sender:</strong> <%= @shipment.senderName %></p>
+      <div class="paid text-center">
+        <%= image_tag wicked_pdf_asset_base64('paid.jpg') %>
+        <%= image_tag wicked_pdf_asset_base64('paid.jpg') %>
+        <%= image_tag wicked_pdf_asset_base64('paid.jpg') %>
+        <%= image_tag wicked_pdf_asset_base64('paid.jpg') %>
+      </div>
       <hr>
+      <h6>Sender's Details</h6>
+        <p>Sender's Name: <%= @shipment.senderName %></p>
+        <p>Sender's Phone: <%= @shipment.sender_phone %></p>
+        <p>Sender's Email: <%= @shipment.sender_email %></p>
+        <p>Sender's Address: <%= @shipment.sender_address %>, <%= @shipment.shippedFrom %></p>
+      <hr>
+      <h6>Receiver's Details</h6>
+        <p>Receiver's Name: <%= @shipment.receiverName %></p>
+        <p>Receiver's Phone: <%= @shipment.receiver_phone %></p>
+        <p>Receiver's Email: <%= @shipment.receiver_email %></p>
+        <p>Receiver's Address: <%= @shipment.receiver_address %>, <%= @shipment.destination %></p>
+        <div class="paid text-center">
+          <%= image_tag wicked_pdf_asset_base64('paid.jpg') %>
+          <%= image_tag wicked_pdf_asset_base64('paid.jpg') %>
+          <%= image_tag wicked_pdf_asset_base64('paid.jpg') %>
+          <%= image_tag wicked_pdf_asset_base64('paid.jpg') %>
+        </div>
       <%= image_tag wicked_pdf_asset_base64('barcode.png') %>
       <%#= wicked_pdf_image_tag "https://img2.pngio.com/barcode-design-element-transparent-png-svg-vector-file-barcode-design-png-512_512.png" %>
       <%= yield %>

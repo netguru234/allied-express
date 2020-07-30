@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-md-4">
         <h4 class="text-center">
-          Shipment Details
+          Sender's Details
         </h4>
         <p id="notice"><%= notice %></p>
 
@@ -12,23 +12,23 @@
         </p>
 
         <p>
-          <strong>Receiver's Name:</strong>
-          <%= @shipment.receiverName %>
+          <strong>Sender's Address:</strong>
+          <%= @shipment.sender_address %>, <%= @shipment.shippedFrom %>
         </p>
 
         <p>
-          <strong>Shipped From:</strong>
-          <%= @shipment.shippedFrom %>
+          <strong>Sender's Phone:</strong>
+          <%= @shipment.sender_phone %>
+        </p>
+
+        <p>
+          <strong>Sender's Email:</strong>
+          <%= @shipment.sender_email %>
         </p>
 
         <p>
           <strong>Tracking Number:</strong>
           <%= @shipment.trackingnumber %>
-        </p>
-
-        <p>
-          <strong>Destination:</strong>
-          <%= @shipment.destination %>
         </p>
 
 
@@ -38,7 +38,31 @@
 
     </div>
 
-    <div class="col-md-8">
+    <div class="col-md-4">
+      <h4>Receiver's Details</h4>
+
+      <p>
+        <strong>Receiver's Name:</strong>
+        <%= @shipment.receiverName %>
+      </p>
+
+      <p>
+        <strong>Receiver's Address:</strong>
+        <%= @shipment.receiver_address %>, <%= @shipment.destination %>
+      </p>
+
+      <p>
+        <strong>Receiver's Phone:</strong>
+        <%= @shipment.receiver_phone %>
+      </p>
+
+      <p>
+        <strong>Receiver's Email:</strong>
+        <%= @shipment.receiver_email %>
+      </p>
+    </div>
+
+    <div class="col-md-4">
       <h4 class="text-center">Scan History</h4>
       <table class="table table-striped">
         <thead>

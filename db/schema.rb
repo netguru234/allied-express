@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200729050308) do
+ActiveRecord::Schema.define(version: 20200730071743) do
 
   create_table "contacts", force: :cascade do |t|
     t.string   "name"
@@ -45,9 +45,15 @@ ActiveRecord::Schema.define(version: 20200729050308) do
     t.string   "shippedFrom"
     t.string   "trackingnumber"
     t.string   "destination"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
     t.string   "slug"
+    t.string   "sender_address"
+    t.string   "sender_phone"
+    t.string   "sender_email"
+    t.string   "receiver_address"
+    t.string   "receiver_email"
+    t.string   "receiver_phone"
     t.index ["slug"], name: "index_shipments_on_slug", unique: true
   end
 

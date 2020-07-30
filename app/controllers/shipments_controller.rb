@@ -47,7 +47,8 @@ class ShipmentsController < ApplicationController
     respond_to do |format|
       format.html
       format.pdf do
-        render pdf: "file_name"   # Excluding ".pdf" extension.
+        render pdf: 'file_name',
+        background: true
       end
     end
   end
@@ -79,7 +80,7 @@ class ShipmentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def shipment_params
-      params.require(:shipment).permit(:senderName, :receiverName, :destination, :trackingnumber, :shippedFrom )
+      params.require(:shipment).permit(:senderName, :receiverName, :destination, :trackingnumber, :shippedFrom, :sender_email, :sender_phone, :sender_address, :receiver_email, :receiver_phone, :receiver_address )
     end
 
     def ensure_admin
