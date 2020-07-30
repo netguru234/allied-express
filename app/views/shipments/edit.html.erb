@@ -1,0 +1,33 @@
+
+    <h1 class="text-center">Editing Shipment</h1>
+
+		<%= render 'form', shipment: @shipment %>
+
+    <div class="container" style="margin-top: 3rem;">
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+          <h4>
+            Update Shipment History
+          </h4>
+
+          <%= form_for ([@shipment, @history]) do |f| %>
+            <%#= render "shared/errors", object:  %>
+
+            <div class="form-group">
+              <%= f.label :scan_history, "Shipment Update" %>
+              <%= f.text_field :scan_history, class: "form-control", placeholder: "Enter shipment update..." %>
+            </div>
+
+            <div class="actions">
+              <%= f.submit "Update Shipment Status", class: "btn btn-success" %>
+            </div>
+
+          <% end %>
+
+          <div class="text-center">
+            <%= link_to 'Show', @shipment %> |
+        		<%= link_to 'Back', shipments_path %>
+          </div>
+        </div>
+      </div>
+    </div>

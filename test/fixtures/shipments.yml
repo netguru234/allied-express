@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  senderName: MyString
+  receiverName: MyString
+  shippedFrom: MyString
+  trackingNumber: MyString
+  destination: MyString
+  status: MyString
+  lastScan: MyString
+
+two:
+  senderName: MyString
+  receiverName: MyString
+  shippedFrom: MyString
+  trackingNumber: MyString
+  destination: MyString
+  status: MyString
+  lastScan: MyString

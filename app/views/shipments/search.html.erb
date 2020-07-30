@@ -1,0 +1,60 @@
+<div class="container">
+  <div class="row">
+    <div class="box">
+      <div class="col-lg-12">
+          <hr>
+          <h2 class="intro-text text-center">Your <strong>Tracking Status</strong>
+          </h2>
+          <hr>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-4">
+      <h4 class="text-center">Your Tracking Information</h4>
+      <% @shipments.each do |shipment| %>
+        <p>  <strong>Sender's Name: </strong> <%= shipment.senderName %> </p>
+        <p>  <strong>Recipient's Name: </strong> <%= shipment.receiverName %> </p>
+        <p>  <strong>Shipped From: </strong> <%= shipment.shippedFrom %> </p>
+        <p>  <strong>Tracking Number: </strong> <%= shipment.trackingnumber %></p>
+        <p>  <strong>Destination: </strong> <%= shipment.destination %></p>
+      <% end %>
+    	<br>
+    	<%= link_to 'Track Another Package', root_path, class: "btn btn-primary" %> |  <%= link_to 'Exit & Return to Home', root_path, class: "btn btn-danger" %>
+    </div>
+    <div class="col-md-8">
+      <h4 class="text-center">Scan History</h4>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>
+              Last Updated
+            </th>
+            <th>
+              Status
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @shipments.each do |shipment| %>
+            <% if shipment.histories.any? %>
+              <% shipment.histories.order("updated_at DESC").each do |history| %>
+                <tr>
+                  <td><%= time_ago_in_words(history.updated_at) %> ago</td>
+                  <td><%= history.scan_history %></td>
+                </tr>
+              <% end %>
+            <% else %>
+              <tr>
+                <td><%= time_ago_in_words(shipment.updated_at) %> ago</td>
+                <td><%= "Shipment created" %></td>
+              </tr>
+            <% end %>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>

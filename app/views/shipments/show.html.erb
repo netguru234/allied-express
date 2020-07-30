@@ -1,0 +1,76 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+        <h4 class="text-center">
+          Shipment Details
+        </h4>
+        <p id="notice"><%= notice %></p>
+
+        <p>
+          <strong>Sender's Name:</strong>
+          <%= @shipment.senderName %>
+        </p>
+
+        <p>
+          <strong>Receiver's Name:</strong>
+          <%= @shipment.receiverName %>
+        </p>
+
+        <p>
+          <strong>Shipped From:</strong>
+          <%= @shipment.shippedFrom %>
+        </p>
+
+        <p>
+          <strong>Tracking Number:</strong>
+          <%= @shipment.trackingnumber %>
+        </p>
+
+        <p>
+          <strong>Destination:</strong>
+          <%= @shipment.destination %>
+        </p>
+
+
+
+        <%= link_to 'Update Shipment', edit_shipment_path(@shipment), class: "btn btn-warning" %> |
+        <%= link_to 'Back', shipments_path, class: "btn btn-info" %>
+
+    </div>
+
+    <div class="col-md-8">
+      <h4 class="text-center">Scan History</h4>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>
+              Last Updated
+            </th>
+            <th>
+              Status
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <% if @shipment.histories.any? %>
+            <% @shipment.histories.order("updated_at DESC").each do |history| %>
+              <tr>
+                <td><%= time_ago_in_words(history.updated_at) %> ago</td>
+                <td><%= history.scan_history %></td>
+              </tr>
+            <% end %>
+            <tr>
+              <td><%= time_ago_in_words(@shipment.created_at) %> ago</td>
+              <td><%= "Shipment created" %></td>
+            </tr>
+          <% else %>
+            <tr>
+              <td><%= time_ago_in_words(@shipment.updated_at) %> ago</td>
+              <td><%= "Shipment created" %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

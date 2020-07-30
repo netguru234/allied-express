@@ -1,0 +1,60 @@
+<div class="container">
+  <div class="row">
+        <div class="col-lg-12">
+            <hr>
+            <h2 class="intro-text text-center">Your <strong>Tracking Status</strong>
+            </h2>
+            <hr>
+        </div>
+      <div class="col-md-6 col-md-offset-3">
+
+          <%= form_for(shipment) do |f| %>
+                <% if shipment.errors.any? %>
+                  <div id="error_explanation">
+                    <h2><%= pluralize(shipment.errors.count, "error") %> prohibited this shipment from being saved:</h2>
+
+                    <ul>
+                    <% shipment.errors.full_messages.each do |message| %>
+                      <li><%= message %></li>
+                    <% end %>
+                    </ul>
+                  </div>
+                <% end %>
+
+                <div class="field">
+                  <%= f.label :senderName, "Sender's Name" %>
+                  <%= f.text_field :senderName %>
+                </div>
+
+                <div class="field">
+                  <%= f.label :receiverName, "Receiver's Name" %>
+                  <%= f.text_field :receiverName %>
+                </div>
+
+                <div class="field">
+                  <%= f.label :shippedFrom, "Shipped From" %>
+                  <%= f.select :shippedFrom, options_for_select([["Select One", ""], "Afghanistan","Albania","Algeria","Andorra","Angola","Antigua and Barbuda","Argentina","Armenia","Australia","Austria","Azerbaijan","B","Bahamas","Bahrain","Bangladesh","Barbados","Belarus","Belgium","Belize","Benin","Bhutan","Bolivia","Bosnia and Herzegovina","Botswana","Brazil","Brunei","Bulgaria","Burkina Faso","Burundi","C","Cabo Verde","Cambodia","Cameroon","Canada","Central African Republic (CAR)","Chad","Chile","China","Colombia","Comoros","Democratic Republic of the Congo","Republic of the Congo","Costa Rica","Cote d'Ivoire","Croatia","Cuba","Cyprus","Czech Republic","D","Denmark","Djibouti","Dominica","Dominican Republic","E","Ecuador","Egypt","El Salvador","Equatorial Guinea","Eritrea","Estonia","Ethiopia","F","Fiji","Finland","France","G","Gabon","Gambia","Georgia","Germany","Ghana","Greece","Grenada","Guatemala","Guinea","Guinea-Bissau","Guyana","H","Haiti","Honduras","Hungary","I","Iceland","India","Indonesia","Iran","Iraq","Ireland","Israel","Italy","J","Jamaica","Japan","Jordan","K","Kazakhstan","Kenya","Kiribati","Kosovo","Kuwait","Kyrgyzstan","L","Laos","Latvia","Lebanon","Lesotho","Liberia","Libya","Liechtenstein","Lithuania","Luxembourg","M","Macedonia (FYROM)","Madagascar","Malawi","Malaysia","Maldives","Mali","Malta","Marshall Islands","Mauritania","Mauritius","Mexico","Micronesia","Moldova","Monaco","Mongolia","Montenegro","Morocco","Mozambique","Myanmar (Burma)","N","Namibia","Nauru","Nepal","Netherlands","New Zealand","Nicaragua","Niger","Nigeria","North Korea","Norway","O","Oman","P","Pakistan","Palau","Palestine","Panama","Papua New Guinea","Paraguay","Peru","Philippines","Poland","Portugal","Q","Qatar","R","Romania","Russia","Rwanda","S","Saint Kitts and Nevis","Saint Lucia","Saint Vincent and the Grenadines","Samoa","San Marino","Sao Tome and Principe","Saudi Arabia","Senegal","Serbia","Seychelles","Sierra Leone","Singapore","Slovakia","Slovenia","Solomon Islands","Somalia","South Africa","South Korea","South Sudan","Spain","Sri Lanka","Sudan","Suriname","Swaziland","Sweden","Switzerland","Syria","T","Taiwan","Tajikistan","Tanzania","Thailand","Timor-Leste","Togo","Tonga","Trinidad and Tobago","Tunisia","Turkey","Turkmenistan","Tuvalu","U","Uganda","Ukraine","United Arab Emirates (UAE)","United Kingdom (UK)","United States of America (USA)","Uruguay","Uzbekistan","V","Vanuatu","Vatican City (Holy See)","Venezuela","Vietnam","Y","Yemen","Z","Zambia","Zimbabwe"]) %>
+                </div>
+
+                <div class="field">
+                  <%= f.label :trackingnumber, 'Tracking Number' %>
+                  <%= f.text_field :trackingnumber %>
+                </div>
+
+                <div class="field">
+                  <%= f.label :destination, "Destination Country" %>
+                  <%= f.select :destination, options_for_select([["Select One", ""], "Afghanistan","Albania","Algeria","Andorra","Angola","Antigua and Barbuda","Argentina","Armenia","Australia","Austria","Azerbaijan","B","Bahamas","Bahrain","Bangladesh","Barbados","Belarus","Belgium","Belize","Benin","Bhutan","Bolivia","Bosnia and Herzegovina","Botswana","Brazil","Brunei","Bulgaria","Burkina Faso","Burundi","C","Cabo Verde","Cambodia","Cameroon","Canada","Central African Republic (CAR)","Chad","Chile","China","Colombia","Comoros","Democratic Republic of the Congo","Republic of the Congo","Costa Rica","Cote d'Ivoire","Croatia","Cuba","Cyprus","Czech Republic","D","Denmark","Djibouti","Dominica","Dominican Republic","E","Ecuador","Egypt","El Salvador","Equatorial Guinea","Eritrea","Estonia","Ethiopia","F","Fiji","Finland","France","G","Gabon","Gambia","Georgia","Germany","Ghana","Greece","Grenada","Guatemala","Guinea","Guinea-Bissau","Guyana","H","Haiti","Honduras","Hungary","I","Iceland","India","Indonesia","Iran","Iraq","Ireland","Israel","Italy","J","Jamaica","Japan","Jordan","K","Kazakhstan","Kenya","Kiribati","Kosovo","Kuwait","Kyrgyzstan","L","Laos","Latvia","Lebanon","Lesotho","Liberia","Libya","Liechtenstein","Lithuania","Luxembourg","M","Macedonia (FYROM)","Madagascar","Malawi","Malaysia","Maldives","Mali","Malta","Marshall Islands","Mauritania","Mauritius","Mexico","Micronesia","Moldova","Monaco","Mongolia","Montenegro","Morocco","Mozambique","Myanmar (Burma)","N","Namibia","Nauru","Nepal","Netherlands","New Zealand","Nicaragua","Niger","Nigeria","North Korea","Norway","O","Oman","P","Pakistan","Palau","Palestine","Panama","Papua New Guinea","Paraguay","Peru","Philippines","Poland","Portugal","Q","Qatar","R","Romania","Russia","Rwanda","S","Saint Kitts and Nevis","Saint Lucia","Saint Vincent and the Grenadines","Samoa","San Marino","Sao Tome and Principe","Saudi Arabia","Senegal","Serbia","Seychelles","Sierra Leone","Singapore","Slovakia","Slovenia","Solomon Islands","Somalia","South Africa","South Korea","South Sudan","Spain","Sri Lanka","Sudan","Suriname","Swaziland","Sweden","Switzerland","Syria","T","Taiwan","Tajikistan","Tanzania","Thailand","Timor-Leste","Togo","Tonga","Trinidad and Tobago","Tunisia","Turkey","Turkmenistan","Tuvalu","U","Uganda","Ukraine","United Arab Emirates (UAE)","United Kingdom (UK)","United States of America (USA)","Uruguay","Uzbekistan","V","Vanuatu","Vatican City (Holy See)","Venezuela","Vietnam","Y","Yemen","Z","Zambia","Zimbabwe"]) %>
+                </div>
+
+
+
+                <div class="actions">
+                  <%= f.submit %>
+                </div>
+              <% end %>
+
+
+
+    </div>
+  </div>
+</div>
