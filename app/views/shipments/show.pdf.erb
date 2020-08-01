@@ -16,7 +16,7 @@
 
         .text-center {
           text-align: center;
-          font-size: 4rem;
+          // font-size: 4rem;
         }
 
         p {
@@ -25,6 +25,16 @@
 
         h6 {
           margin: 2px 0;
+          font-family: 'Niconne', cursive;
+        }
+
+        h2 {
+          font-size: 3rem;
+        }
+
+        address {
+          font-size: 1.3rem;
+          font-family: 'Niconne', cursive;
         }
     </style>
   </head>
@@ -32,8 +42,14 @@
     <div id="header" class="text-center">
       <h2>Shipment Receipt</h2>
       <%= image_tag wicked_pdf_asset_base64('logo.png') %> <br>
-      <small>Email: firstworldd@aol.com</small>
     </div>
+    <address class="text-center">
+      <strong>
+        <small>Email: firstworldd@aol.com</small> <br>
+        <small>Phone: +17784025569 (Head office) / +447438481173 (Branch office)</small> <br>
+        <small>Web: https://firstworlddelivery.com</small> <br>
+      </strong>
+    </address>
     <br>
     <div class="paid text-center">
       <%= image_tag wicked_pdf_asset_base64('paid.jpg') %>
