@@ -18,7 +18,7 @@
               <h1>Shipments</h1>
               <% if @shipments.blank? %>
                 <h4>There are no shipment containing the term <%= params[:search] %>.</h4>
-              <% end %>
+              <% else %>
               <table>
                 <thead>
                   <tr>
@@ -47,6 +47,7 @@
                   <% end %>
                 </tbody>
               </table>
+              <% end %>
 
               <br>
 
